@@ -1,0 +1,51 @@
+<body id=b>
+<style>
+  * { margin: 0; padding: 0; border: 0 }
+  header { font-size: 12px; position: fixed; top: 0; right: 0; background: #eee; padding: 10px; font-family: Arial }
+  input[type=range] { width: 150px; height: 20px }
+  button { padding: 5px; background: #fff; border: 1px solid }
+  div { position: absolute; border-radius: 50% }
+  #new { width: 100px; height: 200px; left: 400px; top: 200px; background: #000 }
+</style>
+<script>
+  n=function(){
+    document.getElementById("new").id="";
+    document.body.innerHTML+="<div id=new></div>";
+  }
+  
+  onchange=function(){
+    document.getElementById("new").style.width = w.value+"px";
+    document.getElementById("new").style.height = h.value+"px";
+    document.getElementById("new").style.left = l.value;
+    document.getElementById("new").style.top = t.value;
+    document.getElementById("new").style.transform = "rotateZ(" + a.value + "deg)";
+    document.getElementById("new").style.webkitTransform = "rotateZ(" + a.value + "deg)";
+    document.getElementById("new").style.background = c.value;
+  }
+</script>
+<header>
+  <h2>Draw Circles</h2>
+  <b>Edit current shape</b>:
+  <br>
+  <br>
+  Width <input type=range min=1 max=2000 value=100 id=w>
+  <br>
+  Height <input type=range min=1 max=2000 value=200 id=h>
+  <br>
+  Top <input type=range min=1 max=2000 value=200 id=t>
+  <br>
+  Left <input type=range min=1 max=2000 value=500 id=l>
+  <br>
+  Angle <input type=range min=0 max=180 value=0 id=a>
+  <br>
+  Color <input type=color value=#000 id=c>
+  <br>
+  <br>
+  <button id=n onclick=n()>New shape</button>
+  <br>
+  <br>
+  <a href=//github.com/xem/drawcircles>Fork me on Github</a>
+  <br>
+  2014 - xem
+</header>
+<div id=new></div>
