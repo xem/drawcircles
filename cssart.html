@@ -42,17 +42,26 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 	</head>
 	<body style="background-color:#000;">
     .<script>
-  
-    resize = function(){
-      ratio = document.documentElement.clientWidth / 11000;
+    zoom = false;
+    onkeypress = function(){
+      zoom = !zoom;
+      resize();
+    }
+    resize=onload=onresize=function(){
       b = document.body;
-      b.style.transform = "scale("+ratio+")";
-      b.style.mozTransform = "scale("+ratio+")";
-      b.style.webkitTransform = "scale("+ratio+")";
+      if(zoom){
+        b.style.mozTransform = "scale(1)";
+        b.style.transform = "scale(1)";
+        b.style.webkitTransform = "scale(1)";
+      }
+      else{
+        ratio = document.documentElement.clientWidth / 11000;
+        b.style.transform = "scale("+ratio+")";
+        b.style.mozTransform = "scale("+ratio+")";
+        b.style.webkitTransform = "scale("+ratio+")";
+      }
     };
     resize();
-    onload=onresize=resize;
-
     </script>
 		<div id="fb-root"></div>
 		<script>(function(d, s, id) {
