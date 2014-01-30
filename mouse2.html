@@ -1,0 +1,41 @@
+<body id=b>
+<script>
+m = 0;
+onmousedown=function(e){
+  m = 1;
+  x = e.pageX;
+  y = e.pageY;
+  N = document.getElementById("n");
+  if(N){
+    N.id = "";
+  }
+  b.innerHTML+="<div id=n style=position:absolute;top:"+y+"px;left:"+x+"px;border-radius:50%;background:red>";
+  console.log("div added");
+}
+onmouseup = function(){
+  m = 0;
+  console.log("mousedown:",m);
+}
+onmousemove = function(e){
+  if(m){
+    i = e.pageX;
+    j = e.pageY;
+    if(i < x){
+      n.style.left = i + "px";
+      n.style.width = (x - i) + "px";
+    }
+    else{
+      n.style.left = x + "px";
+      n.style.width = (i - x) + "px";
+    }
+    if(j < y){
+      n.style.top = j + "px";
+      n.style.height = (y - j) + "px";
+    }
+    else{
+      n.style.top = y + "px";
+      n.style.height = (j - y) + "px";
+    }
+  }
+}
+</script>
