@@ -25,16 +25,16 @@ onmousemove = function(e){
       n.style.width = (x - i) * 2 + "px";
     }
     else{
-      n.style.left = x + "px";
-      n.style.width = (i - x) + "px";
+      n.style.left = x - (i - x) + "px";
+      n.style.width = (i - x) * 2 + "px";
     }
     if(j < y){
       n.style.top = j + "px";
       n.style.height = (y - j) * 2 + "px";
     }
     else{
-      n.style.top = y + "px";
-      n.style.height = (j - y) + "px";
+      n.style.top = y - (j - y) + "px";
+      n.style.height = (j - y) * 2 + "px";
     }
   }
 }
