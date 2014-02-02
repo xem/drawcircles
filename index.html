@@ -1,1 +1,21 @@
-<title>DrawCircles</title><body id=B onload='w=h=l=t=m=0,(t=b.style).width=(p=prompt)("Canvas width",2000),t.height=p("Canvas height",400);z=B.style.background=p("Canvas background","#def")'><input title=color type=color id=c><input title=angle type=range max=180 value=0 id=a onchange='n.setAttribute("style","position:absolute;top:"+t+"px;left:"+l+"px;width:"+w+"px;height:"+h+"px;border-radius:50%;background:"+c.value+";-moz-transform=rotate("+a.value+"deg);-webkit-transform:rotate("+a.value+"deg);transform:rotate("+a.value+"deg)")'><input type=button id=s value=Save onclick='prompt("HTML","<body style=background:"+z+">"+b.innerHTML.replace(/id=\"n?\" /g,""))'><div id=b onmousedown='w=h=l=t=m=1;a.value=0;x=(e=event).pageX;y=e.pageY;if(N=document.getElementById("n"))N.id="";b.innerHTML+="<div id=n>";n.setAttribute("style","position:absolute;top:"+t+"px;left:"+l+"px;width:"+w+"px;height:"+h+"px;border-radius:50%;background:"+c.value+"-moz-transform:rotate("+a.value+"deg);-webkit-transform:rotate("+a.value+"deg);transform:rotate("+a.value+"deg)")'onmouseup=m=0 onmousemove='i=(e=event).pageX;j=e.pageY;if(m){i<x?(l=i,w=x-i):(l=x,w=i-x);j<y?(t=j,h=y-j):(t=y,h=j-y);n.setAttribute("style","position:absolute;top:"+t+"px;left:"+l+"px;width:"+w+"px;height:"+h+"px;border-radius:50%;background:"+c.value+";-moz-transform:rotate("+a.value+"deg);-webkit-transform:rotate("+a.value+"deg);transform:rotate("+a.value+"deg)")}'></div><style>*{-webkit-user-select:none;margin:0}input{position:fixed;top:10px;left:10px;z-index:9999}#a{left:70px;width:180px}#s{left:260px}
+<title>DrawCircles</title>
+<body onload='w=h=l=t=m=0,(t=b.style).width=(p=prompt)("Canvas width",1000),t.height=p("Canvas height",400);z=t.background=p("Canvas background","#def")'>
+<m>
+<h3>DrawCircles</h3>
+Preset:
+<n>Color <input title=color type=color value=#bbbbbb id=c>
+ Rounded <input title='Rounded corners'type=checkbox id=r checked>
+</n> 
+Draw: <n>use the mouse</n> 
+Edit: <n>
+ Angle <input title=angle type=range max=180 value=0 id=a onchange='n.setAttribute("style","position:absolute;top:"+t+"px;left:"+l+"px;width:"+w+"px;height:"+h+"px;border-radius:"+(r.checked?"50%":"0")+";background:"+c.value+";-moz-transform=rotate("+a.value+"deg);-webkit-transform:rotate("+a.value+"deg);transform:rotate("+a.value+"deg)")'>
+</n>
+<input type=button id=s value=Save onclick='prompt("HTML","<body style=background:"+z+">"+b.innerHTML.replace(/id=\"n?\" |contenteditable(...)? |<\/p>/g,""))'>
+</m>
+<div id=b
+onmousedown='w=h=l=t=m=1;a.value=0;x=(e=event).pageX;y=e.pageY;if(N=document.getElementById("n"))N.id="";b.innerHTML+="<p contenteditable id=n>\u200a";n.setAttribute("style","position:absolute;top:"+t+"px;left:"+l+"px;width:"+w+"px;height:"+h+"px;border-radius:"+(r.checked?"50%":"0")+";background:"+c.value+"-moz-transform:rotate("+a.value+"deg);-webkit-transform:rotate("+a.value+"deg);transform:rotate("+a.value+"deg)");n.focus()'
+onmouseup=m=0 
+onmousemove='i=(e=event).pageX;j=e.pageY;if(m){i<x?(l=i,w=x-i):(l=x,w=i-x);j<y?(t=j,h=y-j):(t=y,h=j-y);n.setAttribute("style","position:absolute;top:"+t+"px;left:"+l+"px;width:"+w+"px;height:"+h+"px;border-radius:"+(r.checked?"50%":"0")+";background:"+c.value+";-moz-transform:rotate("+a.value+"deg);-webkit-transform:rotate("+a.value+"deg);transform:rotate("+a.value+"deg)")}'>
+<style>p{margin:0}</style>
+</div>
+<style>*{margin:0;vertical-align:middle;font-family:arial}m{position:fixed;top:10px;left:10px;z-index:9999}div{margin:50px 10px}n,h3{display:inline-block;padding:5px;background:#f8f8f8}
