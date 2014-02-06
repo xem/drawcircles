@@ -8,14 +8,15 @@ Preset:
 </n> 
 Draw: <n>use the mouse</n> 
 Edit: <n>
- Angle <input title=angle type=range max=180 value=0 id=a onchange='n.setAttribute("style","position:absolute;top:"+t+"px;left:"+l+"px;width:"+w+"px;height:"+h+"px;border-radius:"+(r.checked?"50%":"0")+";background:"+c.value+";-moz-transform=rotate("+a.value+"deg);-webkit-transform:rotate("+a.value+"deg);transform:rotate("+a.value+"deg)")'>
+ Angle <input title=angle type=range max=180 value=0 id=a onchange='n.setAttribute("style","position:absolute;top:"+t+"px;left:"+l+"px;width:"+w+"px;height:"+h+"px;border-radius:"+(r.checked?"50%":"0")+";background:"+c.value+";-moz-transform=rotate("+a.value+"deg);-webkit-transform:rotate("+a.value+"deg);transform:rotate("+a.value+"deg)");T.value=b.innerHTML'>
 </n>
 <input type=button id=s value=Save onclick='prompt("HTML","<body style=background:"+z+">"+b.innerHTML.replace(/id=\"n?\" |contenteditable(...)? |<\/p>/g,""))'>
 </m>
 <div id=b
 onmousedown='w=h=l=t=m=1;a.value=0;x=(e=event).pageX;y=e.pageY;if(N=document.getElementById("n"))N.id="";b.innerHTML+="<p contenteditable id=n>\u200a";n.setAttribute("style","position:absolute;top:"+t+"px;left:"+l+"px;width:"+w+"px;height:"+h+"px;border-radius:"+(r.checked?"50%":"0")+";background:"+c.value+"-moz-transform:rotate("+a.value+"deg);-webkit-transform:rotate("+a.value+"deg);transform:rotate("+a.value+"deg)");n.focus()'
-onmouseup=m=0 
+onmouseup='m=0;T.value=b.innerHTML'
 onmousemove='i=(e=event).pageX;j=e.pageY;if(m){i<x?(l=i,w=x-i):(l=x,w=i-x);j<y?(t=j,h=y-j):(t=y,h=j-y);n.setAttribute("style","position:absolute;top:"+t+"px;left:"+l+"px;width:"+w+"px;height:"+h+"px;border-radius:"+(r.checked?"50%":"0")+";background:"+c.value+";-moz-transform:rotate("+a.value+"deg);-webkit-transform:rotate("+a.value+"deg);transform:rotate("+a.value+"deg)")}'>
 <style>p{margin:0}</style>
 </div>
-<style>*{margin:0;vertical-align:middle;font-family:arial}m{position:fixed;top:10px;left:10px;z-index:9999}div{margin:50px 10px}n,h3{display:inline-block;padding:5px;background:#f8f8f8}
+<textarea id=T onkeyup=b.innerHTML=T.value spellcheck=false></textarea>
+<style>*{margin:0;vertical-align:middle;font-family:arial}m{position:fixed;top:10px;left:10px;z-index:9999}div{margin:50px 10px}n,h3{display:inline-block;padding:5px;background:#f8f8f8}#t{position:fixed;bottom:0;width:100%;height:100px;font:normal 10px courier}
